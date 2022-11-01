@@ -2,21 +2,45 @@
 
 function give_maxipago_get_num_ref($formatoNumReferencia, $auxDonation_id)
 {
-	$aux_numReferencia = '';
+	switch ( $formatoNumReferencia ) {
+		case 'id':
+			return $auxDonation_id;
+			break;
 
-	if($formatoNumReferencia == 'id') {
-		$aux_numReferencia = $auxDonation_id;
-	}
-	else if($formatoNumReferencia == 'data') {
+		case 'data':
+			return date("YmdHis");
+			break;
+			
+		case 'id_data':
+			return $auxDonation_id . "_" . date("YmdHis");
+			break;
 
-		$aux_numReferencia = date("YmdHis");
+		default:
+			return date("YmdHis");
+			break;
 	}
-	else if($formatoNumReferencia == 'id_data') {
-		$aux_numReferencia = $auxDonation_id . "_" . date("YmdHis");
-	}
-	else {
-		$aux_numReferencia = date("YmdHis");
-	}
+}
 
-	return $aux_numReferencia;
+// maxipago! Gateway period format:
+// daily = dia(s), weekly = semana(s), monthly = mês(es), biMonthly = bimestral, quarterly = trimestral, semiannual = semestral, annual = anual
+
+function give_maxipago_get_period($periodo) 
+{
+	switch ( $periodo ) {
+		case 'day':
+			return 'daily';
+			break;
+
+		case 'month':
+			return 'monthly';
+			break;
+			
+		case 'year':
+			return 'anual';
+			break;
+
+		default:
+			return "monthly";
+			break;
+	}
 }

@@ -3,7 +3,7 @@
  * Plugin Name:          Give - maxiPago! Gateway
  * Plugin URI:        	 https://github.com/mborsacchi/give-maxipago
  * Description:          Adds the maxiPago! payment gateway to the available GiveWP payment methods.
- * Version:              1.0.0
+ * Version:              2.0.0
  * Author:               Marcelo Borsacchi
  * Author URI:           https://github.com/mborsacchi
  * Text Domain:          give-maxipago
@@ -28,3 +28,5 @@ require_once GIVE_MAXIPAGO_PLUGIN_DIR . 'includes/give-maxipago-util.php';
 
 require_once GIVE_MAXIPAGO_PLUGIN_DIR . 'includes/give-maxipago-gateway.php';
 require_once GIVE_MAXIPAGO_PLUGIN_DIR . 'includes/payment-methods/give-maxipago-creditcard.php';
+
+require_once GIVE_MAXIPAGO_PLUGIN_DIR . 'includes/give-maxipago-recurring-setup.php';
